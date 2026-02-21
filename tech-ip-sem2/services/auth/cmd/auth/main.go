@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net"
 	"os"
@@ -10,7 +9,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/sun1tar/MIREA-TIP-Practice-18/tech-ip-sem2/auth/internal/grpc"
+	grp "github.com/sun1tar/MIREA-TIP-Practice-18/tech-ip-sem2/auth/internal/grpc"
 	pb "github.com/sun1tar/MIREA-TIP-Practice-18/tech-ip-sem2/proto/auth"
 )
 
@@ -26,7 +25,7 @@ func main() {
 	}
 
 	s := grpc.NewServer()
-	pb.RegisterAuthServiceServer(s, &grpc.Server{})
+	pb.RegisterAuthServiceServer(s, &grp.Server{})
 
 	go func() {
 		log.Printf("Auth gRPC server starting on :%s", grpcPort)
